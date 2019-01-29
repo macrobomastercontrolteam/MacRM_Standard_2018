@@ -35,7 +35,7 @@ WorkState_e GetWorkState()
 {
 	return workState;
 }
-//底盘控制任务
+//Chassis control Task
 void CMControlLoop(void)
 {  
 	//底盘旋转量计算
