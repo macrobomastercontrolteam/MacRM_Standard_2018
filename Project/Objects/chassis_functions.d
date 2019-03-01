@@ -1,0 +1,10 @@
+.\objects\chassis_functions.o: ..\user\APP\chassis_task\chassis_functions.c
+.\objects\chassis_functions.o: ..\user\APP\chassis_task\chassis_behaviour.h
+.\objects\chassis_functions.o: ..\User\main.h
+.\objects\chassis_functions.o: ..\user\APP\chassis_task\chassis_task.h
+.\objects\chassis_functions.o: ..\User\APP\CAN_Receive\CAN_Receive.h
+.\objects\chassis_functions.o: ..\User\APP\Gimbal_Task\Gimbal_Task.h
+.\objects\chassis_functions.o: ..\User\APP\pid\pid.h
+.\objects\chassis_functions.o: ..\User\APP\Remote_Control\remote_control.h
+.\objects\chassis_functions.o: ..\User\hardware\RC\rc.h
+.\objects\chassis_functions.o: ..\user\user_lib\user_lib.h
