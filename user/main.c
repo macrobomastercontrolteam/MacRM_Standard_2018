@@ -40,6 +40,11 @@
 #include "calibrate_task.h"
 #include "remote_control.h"
 #include "start_task.h"
+uint16_t cv_x;
+uint16_t cv_y;	
+uint8_t sign_x;
+uint8_t sign_y;
+int count;
 
 void BSP_init(void);
 

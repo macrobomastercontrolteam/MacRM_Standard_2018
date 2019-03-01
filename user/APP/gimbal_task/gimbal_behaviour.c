@@ -24,6 +24,14 @@
 #include "Detect_Task.h"
 
 #include "user_lib.h"
+//
+fp32 x_sens=0;
+fp32 y_sens=0;
+extern uint16_t cv_x;
+extern uint16_t cv_y;	
+extern uint8_t sign_x;
+extern uint8_t sign_y;
+extern int count;
 
 ////云台校准蜂鸣器响声
 //#define GIMBALWarnBuzzerOn() buzzer_on(31, 20000)
@@ -192,6 +200,11 @@ void gimbal_behaviour_mode_set(Gimbal_Control_t *gimbal_mode_set)
         gimbal_mode_set->gimbal_yaw_motor.gimbal_motor_mode = GIMBAL_MOTOR_ENCONDE;
         gimbal_mode_set->gimbal_pitch_motor.gimbal_motor_mode = GIMBAL_MOTOR_ENCONDE;
     }
+		else if (gimbal_behaviour == GIMBAL_CVAIM)
+    {
+        gimbal_mode_set->gimbal_yaw_motor.gimbal_motor_mode = GIMBAL_MOTOR_CVAIM;
+        gimbal_mode_set->gimbal_pitch_motor.gimbal_motor_mode = GIMBAL_MOTOR_CVAIM;
+    }
 }
 
 /**
@@ -243,6 +256,27 @@ void gimbal_behaviour_control_set(fp32 *add_yaw, fp32 *add_pitch, Gimbal_Control
     else if (gimbal_behaviour == GIMBAL_MOTIONLESS)
     {
         gimbal_motionless_control(&rc_add_yaw, &rc_add_pit, gimbal_control_set);
+    }
+		else if (gimbal_behaviour == GIMBAL_CVAIM)
+    {
+			  if(cv_x <= 20){
+				    x_sens = 0.00001;
+				}
+				else{
+					  x_sens = 0.00004;
+				}
+				if(cv_y <= 11){
+				    y_sens = 0.00001;
+				}
+				else{
+					  y_sens = 0.00004;
+				}
+				
+				rc_add_yaw = rc_add_yaw + sign_x ? (-1)*(float)(cv_x)*x_sens : (float)(cv_x)*x_sens;
+				rc_add_yaw = rc_add_pit + sign_y ? (-1)*(float)(cv_y)*y_sens : (float)(cv_y)*y_sens;
+				
+			
+        gimbal_relative_angle_control(&rc_add_yaw, &rc_add_pit, gimbal_control_set);
     }
     //将控制增加量赋值
     *add_yaw = rc_add_yaw;
@@ -351,7 +385,7 @@ static void gimbal_behavour_set(Gimbal_Control_t *gimbal_mode_set)
     //开关控制 云台状态
     if (switch_is_down(gimbal_mode_set->gimbal_rc_ctrl->rc.s[ModeChannel]))
     {
-        gimbal_behaviour = GIMBAL_ZERO_FORCE;
+        gimbal_behaviour = GIMBAL_CVAIM;
     }
     else if (switch_is_mid(gimbal_mode_set->gimbal_rc_ctrl->rc.s[ModeChannel]))
     {
@@ -579,6 +613,7 @@ static void gimbal_relative_angle_control(fp32 *yaw, fp32 *pitch, Gimbal_Control
     }
     //不需要处理，
 }
+
 /**
   * @brief          云台进入遥控器无输入控制，电机是相对角度控制，
   * @author         RM

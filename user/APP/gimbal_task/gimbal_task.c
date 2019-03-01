@@ -454,6 +454,10 @@ static void GIMBAL_Mode_Change_Control_Transit(Gimbal_Control_t *gimbal_mode_cha
     {
         gimbal_mode_change->gimbal_yaw_motor.relative_angle_set = gimbal_mode_change->gimbal_yaw_motor.relative_angle;
     }
+		else if (gimbal_mode_change->gimbal_yaw_motor.last_gimbal_motor_mode != GIMBAL_MOTOR_CVAIM && gimbal_mode_change->gimbal_yaw_motor.gimbal_motor_mode == GIMBAL_MOTOR_CVAIM)
+    {
+        gimbal_mode_change->gimbal_yaw_motor.relative_angle_set = gimbal_mode_change->gimbal_yaw_motor.relative_angle;
+    }
     gimbal_mode_change->gimbal_yaw_motor.last_gimbal_motor_mode = gimbal_mode_change->gimbal_yaw_motor.gimbal_motor_mode;
 
     //pitch电机状态机切换保存数据
@@ -466,6 +470,10 @@ static void GIMBAL_Mode_Change_Control_Transit(Gimbal_Control_t *gimbal_mode_cha
         gimbal_mode_change->gimbal_pitch_motor.absolute_angle_set = gimbal_mode_change->gimbal_pitch_motor.absolute_angle;
     }
     else if (gimbal_mode_change->gimbal_pitch_motor.last_gimbal_motor_mode != GIMBAL_MOTOR_ENCONDE && gimbal_mode_change->gimbal_pitch_motor.gimbal_motor_mode == GIMBAL_MOTOR_ENCONDE)
+    {
+        gimbal_mode_change->gimbal_pitch_motor.relative_angle_set = gimbal_mode_change->gimbal_pitch_motor.relative_angle;
+    }
+		else if (gimbal_mode_change->gimbal_pitch_motor.last_gimbal_motor_mode != GIMBAL_MOTOR_CVAIM && gimbal_mode_change->gimbal_pitch_motor.gimbal_motor_mode == GIMBAL_MOTOR_CVAIM)
     {
         gimbal_mode_change->gimbal_pitch_motor.relative_angle_set = gimbal_mode_change->gimbal_pitch_motor.relative_angle;
     }
@@ -501,6 +509,11 @@ static void GIMBAL_Set_Contorl(Gimbal_Control_t *gimbal_set_control)
         //enconde模式下，电机编码角度控制
         GIMBAL_relative_angle_limit(&gimbal_set_control->gimbal_yaw_motor, add_yaw_angle);
     }
+		else if (gimbal_set_control->gimbal_yaw_motor.gimbal_motor_mode == GIMBAL_MOTOR_CVAIM)
+    {
+        //enconde模式下，电机编码角度控制
+        GIMBAL_relative_angle_limit(&gimbal_set_control->gimbal_yaw_motor, add_yaw_angle);
+    }
 
     //pitch电机模式控制
     if (gimbal_set_control->gimbal_pitch_motor.gimbal_motor_mode == GIMBAL_MOTOR_RAW)
@@ -514,6 +527,11 @@ static void GIMBAL_Set_Contorl(Gimbal_Control_t *gimbal_set_control)
         GIMBAL_absolute_angle_limit(&gimbal_set_control->gimbal_pitch_motor, add_pitch_angle);
     }
     else if (gimbal_set_control->gimbal_pitch_motor.gimbal_motor_mode == GIMBAL_MOTOR_ENCONDE)
+    {
+        //enconde模式下，电机编码角度控制
+        GIMBAL_relative_angle_limit(&gimbal_set_control->gimbal_pitch_motor, add_pitch_angle);
+    }
+		else if (gimbal_set_control->gimbal_pitch_motor.gimbal_motor_mode == GIMBAL_MOTOR_CVAIM)
     {
         //enconde模式下，电机编码角度控制
         GIMBAL_relative_angle_limit(&gimbal_set_control->gimbal_pitch_motor, add_pitch_angle);
@@ -591,6 +609,11 @@ static void GIMBAL_Control_loop(Gimbal_Control_t *gimbal_control_loop)
         //enconde角度控制
         gimbal_motor_relative_angle_control(&gimbal_control_loop->gimbal_yaw_motor);
     }
+		else if (gimbal_control_loop->gimbal_yaw_motor.gimbal_motor_mode == GIMBAL_MOTOR_CVAIM)
+    {
+        //enconde角度控制
+        gimbal_motor_relative_angle_control(&gimbal_control_loop->gimbal_yaw_motor);
+    }
 
     //pitch不同模式对于不同的控制函数
     if (gimbal_control_loop->gimbal_pitch_motor.gimbal_motor_mode == GIMBAL_MOTOR_RAW)
@@ -604,6 +627,11 @@ static void GIMBAL_Control_loop(Gimbal_Control_t *gimbal_control_loop)
         gimbal_motor_absolute_angle_control(&gimbal_control_loop->gimbal_pitch_motor);
     }
     else if (gimbal_control_loop->gimbal_pitch_motor.gimbal_motor_mode == GIMBAL_MOTOR_ENCONDE)
+    {
+        //enconde角度控制
+        gimbal_motor_relative_angle_control(&gimbal_control_loop->gimbal_pitch_motor);
+    }
+		else if (gimbal_control_loop->gimbal_pitch_motor.gimbal_motor_mode == GIMBAL_MOTOR_CVAIM)
     {
         //enconde角度控制
         gimbal_motor_relative_angle_control(&gimbal_control_loop->gimbal_pitch_motor);
