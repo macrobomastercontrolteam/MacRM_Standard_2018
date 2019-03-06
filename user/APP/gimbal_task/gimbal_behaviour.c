@@ -273,7 +273,7 @@ void gimbal_behaviour_control_set(fp32 *add_yaw, fp32 *add_pitch, Gimbal_Control
 				}
 				
 				rc_add_yaw = rc_add_yaw + sign_x ? (-1)*(float)(cv_x)*x_sens : (float)(cv_x)*x_sens;
-				rc_add_yaw = rc_add_pit + sign_y ? (-1)*(float)(cv_y)*y_sens : (float)(cv_y)*y_sens;
+				rc_add_pit = rc_add_pit + sign_y ? (-1)*(float)(cv_y)*y_sens : (float)(cv_y)*y_sens;
 				
 			
         gimbal_relative_angle_control(&rc_add_yaw, &rc_add_pit, gimbal_control_set);
@@ -392,7 +392,7 @@ static void gimbal_behavour_set(Gimbal_Control_t *gimbal_mode_set)
         gimbal_behaviour = GIMBAL_RELATIVE_ANGLE;
     }
     else if (switch_is_up(gimbal_mode_set->gimbal_rc_ctrl->rc.s[ModeChannel]))
-    {
+    { 
         gimbal_behaviour = GIMBAL_ABSOLUTE_ANGLE;
     }
 
