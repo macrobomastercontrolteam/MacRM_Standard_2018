@@ -63,3 +63,6 @@
 .\objects\main.o: ..\User\APP\Calibrate_Task\calibrate_task.h
 .\objects\main.o: ..\User\APP\Remote_Control\remote_control.h
 .\objects\main.o: ..\User\APP\Start_Task\start_task.h
+.\objects\main.o: ..\User\APP\CV_receive\CV_receive.h
+.\objects\main.o: ..\User\hardware\cv\cv.h
+.\objects\main.o: ..\User\APP\Detect_Task\Detect_Task.h
