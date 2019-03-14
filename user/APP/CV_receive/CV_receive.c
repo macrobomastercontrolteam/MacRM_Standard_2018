@@ -85,7 +85,6 @@ void USART6_IRQHandler(void)
         }
 				
 				
-				
 		}
 		USART_ClearITPendingBit(USART6, USART_IT_RXNE);
 }

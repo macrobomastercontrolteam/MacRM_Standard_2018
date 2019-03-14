@@ -48,6 +48,7 @@ static const RC_ctrl_t *shoot_rc; //遥控器指针
 static PidTypeDef trigger_motor_pid;         //电机PID
 static Shoot_Motor_t trigger_motor;          //射击数据
 static shoot_mode_e shoot_mode = SHOOT_STOP; //射击状态机
+static int state = 0;
 //微动开关IO
 #define Butten_Trig_Pin GPIO_ReadInputDataBit(GPIOF, GPIO_Pin_10)
 
@@ -236,21 +237,25 @@ static void Shoot_Set_Mode(void)
     if ((switch_is_up(shoot_rc->rc.s[Shoot_RC_Channel]) && !switch_is_up(last_s) && shoot_mode == SHOOT_STOP))
     {
         shoot_mode = SHOOT_READY;
+			  state = 1;
     }
     else if ((switch_is_up(shoot_rc->rc.s[Shoot_RC_Channel]) && !switch_is_up(last_s) && shoot_mode != SHOOT_STOP) || (shoot_rc->key.v & SHOOT_OFF_KEYBOARD))
     {
         shoot_mode = SHOOT_STOP;
+			  state = 0;
     }
 
     //处于中档， 可以使用键盘开启摩擦轮
-    if (switch_is_mid(shoot_rc->rc.s[Shoot_RC_Channel]) && (shoot_rc->key.v & SHOOT_ON_KEYBOARD) && shoot_mode == SHOOT_STOP)
+    if (state == 0 && switch_is_mid(shoot_rc->rc.s[Shoot_RC_Channel]) && (shoot_rc->key.v & SHOOT_ON_KEYBOARD) && shoot_mode == SHOOT_STOP)
     {
         shoot_mode = SHOOT_READY;
+			  state = 1;
     }
     //处于中档， 可以使用键盘关闭摩擦轮
-    else if (switch_is_mid(shoot_rc->rc.s[Shoot_RC_Channel]) && (shoot_rc->key.v & SHOOT_OFF_KEYBOARD) && shoot_mode == SHOOT_READY)
+    else if (state == 1 && switch_is_mid(shoot_rc->rc.s[Shoot_RC_Channel]) && (shoot_rc->key.v & SHOOT_OFF_KEYBOARD) && shoot_mode == SHOOT_READY)
     {
         shoot_mode = SHOOT_STOP;
+			  state = 0;
     }
 
     //如果云台状态是 无力状态，就关闭射击

@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 #include "cv.h"
 #include "led.h"
 #include "stm32f4xx.h"
