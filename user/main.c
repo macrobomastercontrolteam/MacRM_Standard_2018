@@ -69,10 +69,7 @@ void BSP_init(void)
     led_configuration();
     //stm32 板载温度传感器初始化
     temperature_ADC_init();
-#if GIMBAL_MOTOR_6020_CAN_LOSE_SLOVE
-    //stm32 随机数发生器初始化
-    RNG_init();
-#endif
+
     //24输出控制口 初始化
     power_ctrl_configuration();
     //摩擦轮电机PWM初始化

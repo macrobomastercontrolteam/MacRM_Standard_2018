@@ -86,12 +86,12 @@ void start_task(void *pvParameters)
                 (UBaseType_t)CALIBRATE_TASK_PRIO,
                 (TaskHandle_t *)&CalibrateTask_Handler);
 
-    xTaskCreate((TaskFunction_t)DetectTask,
+ /*   xTaskCreate((TaskFunction_t)DetectTask,
                 (const char *)"DetectTask",
                 (uint16_t)Detect_STK_SIZE,
                 (void *)NULL,
                 (UBaseType_t)Detect_TASK_PRIO,
-                (TaskHandle_t *)&DetectTask_Handler);
+                (TaskHandle_t *)&DetectTask_Handler);*/
 
     vTaskDelete(StartTask_Handler); //删除开始任务
     taskEXIT_CRITICAL();            //退出临界区
