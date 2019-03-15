@@ -9,9 +9,6 @@
 .\objects\calibrate_task.o: ..\User\hardware\RC\rc.h
 .\objects\calibrate_task.o: ..\User\APP\INS_Task\INS_Task.h
 .\objects\calibrate_task.o: E:\keil\ARM\ARMCC\Bin\..\include\string.h
-.\objects\calibrate_task.o: ..\User\APP\Gimbal_Task\gimbal_task.h
-.\objects\calibrate_task.o: ..\User\APP\CAN_Receive\CAN_Receive.h
-.\objects\calibrate_task.o: ..\User\APP\pid\pid.h
 .\objects\calibrate_task.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\calibrate_task.o: E:\keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\calibrate_task.o: ..\User\FreeRTOS\include\FreeRTOS.h

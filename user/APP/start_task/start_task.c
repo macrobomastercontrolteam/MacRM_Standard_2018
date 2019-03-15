@@ -26,15 +26,12 @@
 #include "User_Task.h"
 #include "INS_Task.h"
 #include "Chassis_Task.h"
-#include "Gimbal_Task.h"
+
 
 #define INS_TASK_PRIO 20
 #define INS_TASK_SIZE 512
 static TaskHandle_t INSTask_Handler;
 
-#define GIMBAL_TASK_PRIO 19
-#define GIMBAL_STK_SIZE 512
-TaskHandle_t GIMBALTask_Handler;
 
 #define Chassis_TASK_PRIO 18
 #define Chassis_STK_SIZE 512
@@ -67,12 +64,6 @@ void start_task(void *pvParameters)
                 (UBaseType_t)INS_TASK_PRIO,
                 (TaskHandle_t *)&INSTask_Handler);
 
-    xTaskCreate((TaskFunction_t)GIMBAL_task,
-                (const char *)"GIMBAL_task",
-                (uint16_t)GIMBAL_STK_SIZE,
-                (void *)NULL,
-                (UBaseType_t)GIMBAL_TASK_PRIO,
-                (TaskHandle_t *)&GIMBALTask_Handler);
 
     xTaskCreate((TaskFunction_t)chassis_task,
                 (const char *)"ChassisTask",

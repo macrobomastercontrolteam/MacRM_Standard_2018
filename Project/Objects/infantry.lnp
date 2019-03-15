@@ -83,15 +83,11 @@
 ".\objects\chassis_task.o"
 ".\objects\detect_task.o"
 ".\objects\freertos_middleware.o"
-".\objects\gimbal_behaviour.o"
-".\objects\gimbal_task.o"
 ".\objects\ins_task.o"
 ".\objects\pid.o"
 ".\objects\remote_control.o"
-".\objects\shoot.o"
 ".\objects\start_task.o"
 ".\objects\user_task.o"
-".\objects\cv_receive.o"
 --strict --scatter ".\Objects\infantry.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

@@ -18,7 +18,6 @@
 #include "chassis_task.h"
 #include "arm_math.h"
 
-#include "gimbal_behaviour.h"
 
 /**
   * @brief          底盘无力的行为状态机下，底盘模式是raw，故而设定值会直接发送到can总线上故而将设定值都设置为0
@@ -113,11 +112,7 @@ void chassis_behaviour_mode_set(chassis_move_t *chassis_move_mode)
         chassis_behaviour_mode = CHASSIS_INFANTRY_FOLLOW_GIMBAL_YAW;
     }
 
-    //云台进入某些状态的时候，底盘保持不动
-    if (gimbal_cmd_to_chassis_stop())
-    {
-        chassis_behaviour_mode = CHASSIS_NO_MOVE;
-    }
+
 
     //根据行为状态机选择底盘状态机
     if (chassis_behaviour_mode == CHASSIS_ZERO_FORCE)

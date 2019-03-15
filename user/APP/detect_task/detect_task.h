@@ -24,9 +24,7 @@
 enum errorList
 {
     DBUSTOE = 0,
-    YawGimbalMotorTOE,
-    PitchGimbalMotorTOE,
-    TriggerMotorTOE,
+    
     ChassisMotor1TOE,
     ChassisMotor2TOE,
     ChassisMotor3TOE,

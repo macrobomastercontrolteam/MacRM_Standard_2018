@@ -134,9 +134,6 @@ static void chassis_init(chassis_move_t *chassis_move_init)
     chassis_move_init->chassis_RC = get_remote_control_point();
     //获取陀螺仪姿态角指针
     chassis_move_init->chassis_INS_angle = get_INS_angle_point();
-    //获取云台电机数据指针
-    chassis_move_init->chassis_yaw_motor = get_yaw_motor_point();
-    chassis_move_init->chassis_pitch_motor = get_pitch_motor_point();
     //初始化PID 运动
     for (i = 0; i < 4; i++)
     {

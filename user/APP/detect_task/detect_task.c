@@ -256,9 +256,6 @@ static void DetectInit(uint32_t time)
     uint16_t setItem[errorListLength][3] =
         {
             {30, 40, 15}, //SBUS
-            {2, 3, 14},   //yaw
-            {2, 3, 13},   //pitch
-            {10, 10, 12}, //trigger
             {10, 10, 11}, //motor1
             {10, 10, 10}, //motor2
             {10, 10, 9},  //motor3
@@ -290,8 +287,4 @@ static void DetectInit(uint32_t time)
     errorList[DBUSTOE].solveLostFun = slove_RC_lost;
     errorList[DBUSTOE].solveDataErrorFun = slove_data_error;
 
-#if GIMBAL_MOTOR_6020_CAN_LOSE_SLOVE
-    errorList[YawGimbalMotorTOE].solveLostFun = GIMBAL_lose_slove;
-    errorList[PitchGimbalMotorTOE].solveLostFun = GIMBAL_lose_slove;
-#endif
 }

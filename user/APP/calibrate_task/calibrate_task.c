@@ -27,7 +27,6 @@
 #include "Remote_Control.h"
 #include "INS_Task.h"
 #include "string.h"
-#include "gimbal_task.h"
 
 #include "FreeRTOSConfig.h"
 #include "FreeRTOS.h"
@@ -41,11 +40,9 @@ static void cali_data_read(void);                           //读取所有校准数据
 static void cali_data_write(void);                          //写入当前校准变量的数据
 static bool_t cali_head_hook(uint32_t *cali, bool_t cmd);   //表头校准数据函数
 static bool_t cali_gyro_hook(uint32_t *cali, bool_t cmd);   //陀螺仪校准数据函数
-static bool_t cali_gimbal_hook(uint32_t *cali, bool_t cmd); //云台校准数据函数
 
 static const RC_ctrl_t *calibrate_RC; //遥控器结构体指针
 static head_cali_t head_cali;         //表头校准数据
-static gimbal_cali_t gimbal_cali;     //云台校准数据
 static imu_cali_t gyro_cali;          //陀螺仪校准数据
 static imu_cali_t accel_cali;         //加速度校准数据
 static imu_cali_t mag_cali;           //磁力计校准数据
@@ -57,7 +54,6 @@ static const uint8_t cali_name[CALI_LIST_LENGHT][3] = {"HD", "GM", "GYR", "ACC",
 //校准设备对应放入结构体变量地址
 static uint32_t *cali_sensor_buf[CALI_LIST_LENGHT] =
     {
-        (uint32_t *)&head_cali, (uint32_t *)&gimbal_cali,
         (uint32_t *)&gyro_cali, (uint32_t *)&accel_cali,
         (uint32_t *)&mag_cali};
 
@@ -68,7 +64,7 @@ static uint8_t cali_sensor_size[CALI_LIST_LENGHT] =
         sizeof(imu_cali_t) / 4, sizeof(imu_cali_t) / 4, sizeof(imu_cali_t) / 4};
 
 //校准设备对应的校准函数
-void *cali_hook_fun[CALI_LIST_LENGHT] = {cali_head_hook, cali_gimbal_hook, cali_gyro_hook, NULL, NULL};
+void *cali_hook_fun[CALI_LIST_LENGHT] = {cali_head_hook, cali_gyro_hook, NULL, NULL};
 
 //校准对应时间戳，利用freeRTOS的tick完成。
 static uint32_t calibrate_systemTick;
@@ -352,34 +348,7 @@ static bool_t cali_gyro_hook(uint32_t *cali, bool_t cmd)
     return 0;
 }
 
-static bool_t cali_gimbal_hook(uint32_t *cali, bool_t cmd)
-{
 
-    gimbal_cali_t *local_cali_t = (gimbal_cali_t *)cali;
-    if (cmd == CALI_FUNC_CMD_INIT)
-    {
-        set_cali_gimbal_hook(local_cali_t->yaw_offset, local_cali_t->pitch_offset,
-                             local_cali_t->yaw_max_angle, local_cali_t->yaw_min_angle,
-                             local_cali_t->pitch_max_angle, local_cali_t->pitch_min_angle);
-        return 0;
-    }
-    else if (cmd == CALI_FUNC_CMD_ON)
-    {
-        if (cmd_cali_gimbal_hook(&local_cali_t->yaw_offset, &local_cali_t->pitch_offset,
-                                 &local_cali_t->yaw_max_angle, &local_cali_t->yaw_min_angle,
-                                 &local_cali_t->pitch_max_angle, &local_cali_t->pitch_min_angle))
-        {
-            cali_buzzer_off();
-            return 1;
-        }
-        else
-        {
-            gimbal_start_buzzer();
-            return 0;
-        }
-    }
-    return 0;
-}
 
 //返回纬度信息
 void getFlashLatitude(float *latitude)
