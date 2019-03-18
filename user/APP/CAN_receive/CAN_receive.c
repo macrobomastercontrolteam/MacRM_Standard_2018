@@ -41,7 +41,7 @@
 //统一处理can接收函数
 static void CAN_hook(CanRxMsg *rx_message);
 //声明电机变量
-static motor_measure_t motor_yaw, motor_pit, motor_trigger, motor_chassis[4];
+static motor_measure_t motor_chassis[4];
 
 //can1中断
 void CAN1_RX0_IRQHandler(void)

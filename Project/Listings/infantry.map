@@ -2532,83 +2532,83 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/dczerorl2.s                0x00000000   Number         0  __dczerorl2.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  __rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_errno_addr_intlibspace.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_errno_addr.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/fenv.c                           0x00000000   Number         0  _fptrap.o ABSOLUTE
     ../clib/fenv.c                           0x00000000   Number         0  _rserrno.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  aeabi_memset.o ABSOLUTE
-    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr_w.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_v6.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_char_common.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_intcommon.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss_wp.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_flags_wp.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_wp.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __2sprintf.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr_w.o ABSOLUTE
+    ../clib/memcpset.s                       0x00000000   Number         0  aeabi_memset.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_nopercent.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_flags_wp.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_ss_wp.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _sputc.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_char.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_flags.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss_wp.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  _printf_dec.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_str.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_char.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _sputc.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_intcommon.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __2sprintf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_char_common.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  noretval__2sprintf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_str.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_flags.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_ss.o ABSOLUTE
-    ../clib/printf_percent.s                 0x00000000   Number         0  _printf_c.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_wp.o ABSOLUTE
     ../clib/printf_percent.s                 0x00000000   Number         0  _printf_percent_end.o ABSOLUTE
     ../clib/printf_percent.s                 0x00000000   Number         0  _printf_percent.o ABSOLUTE
     ../clib/printf_percent.s                 0x00000000   Number         0  _printf_u.o ABSOLUTE
+    ../clib/printf_percent.s                 0x00000000   Number         0  _printf_c.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strcpy.o ABSOLUTE
@@ -2632,16 +2632,16 @@ Image Symbol Table
     ../mathlib/acosf.c                       0x00000000   Number         0  acosf.o ABSOLUTE
     ../mathlib/asinf.c                       0x00000000   Number         0  asinf_x.o ABSOLUTE
     ../mathlib/asinf.c                       0x00000000   Number         0  asinf.o ABSOLUTE
-    ../mathlib/atan2f.c                      0x00000000   Number         0  atan2f_x.o ABSOLUTE
     ../mathlib/atan2f.c                      0x00000000   Number         0  atan2f.o ABSOLUTE
+    ../mathlib/atan2f.c                      0x00000000   Number         0  atan2f_x.o ABSOLUTE
     ../mathlib/fabs.c                        0x00000000   Number         0  fabs.o ABSOLUTE
     ../mathlib/fpclassifyf.c                 0x00000000   Number         0  fpclassifyf.o ABSOLUTE
     ../mathlib/funder.c                      0x00000000   Number         0  funder.o ABSOLUTE
     ../mathlib/rredf.c                       0x00000000   Number         0  rredf.o ABSOLUTE
     ../mathlib/sqrtf.c                       0x00000000   Number         0  sqrtf_full_x.o ABSOLUTE
     ../mathlib/sqrtf.c                       0x00000000   Number         0  sqrtf_full.o ABSOLUTE
-    ../mathlib/tanf.c                        0x00000000   Number         0  tanf_x.o ABSOLUTE
     ../mathlib/tanf.c                        0x00000000   Number         0  tanf.o ABSOLUTE
+    ../mathlib/tanf.c                        0x00000000   Number         0  tanf_x.o ABSOLUTE
     ..\CMSIS\stm32f4xx_it.c                  0x00000000   Number         0  stm32f4xx_it.o ABSOLUTE
     ..\CMSIS\system_stm32f4xx.c              0x00000000   Number         0  system_stm32f4xx.o ABSOLUTE
     ..\CommonTables\arm_common_tables.c      0x00000000   Number         0  arm_common_tables.o ABSOLUTE
@@ -3406,44 +3406,41 @@ Image Symbol Table
     accel_cali                               0x20020534   Data          24  calibrate_task.o(.bss)
     mag_cali                                 0x2002054c   Data          24  calibrate_task.o(.bss)
     cali_sensor                              0x20020564   Data          65  calibrate_task.o(.bss)
-    .bss                                     0x200205a8   Section      112  can_receive.o(.bss)
-    motor_yaw                                0x200205a8   Data          10  can_receive.o(.bss)
-    motor_pit                                0x200205b2   Data          10  can_receive.o(.bss)
-    motor_trigger                            0x200205bc   Data          10  can_receive.o(.bss)
-    motor_chassis                            0x200205c6   Data          40  can_receive.o(.bss)
-    rx1_message                              0x200205f0   Data          20  can_receive.o(.bss)
-    rx2_message                              0x20020604   Data          20  can_receive.o(.bss)
-    .bss                                     0x20020618   Section      556  chassis_task.o(.bss)
-    chassis_move                             0x20020618   Data         556  chassis_task.o(.bss)
-    .bss                                     0x20020844   Section      216  detect_task.o(.bss)
-    errorList                                0x20020844   Data         216  detect_task.o(.bss)
-    .bss                                     0x2002091c   Section      292  ins_task.o(.bss)
-    mpu6500_spi_rxbuf                        0x2002091c   Data          23  ins_task.o(.bss)
-    mpu6500_real_data                        0x20020934   Data          32  ins_task.o(.bss)
-    gyro_cali_offset                         0x20020954   Data          12  ins_task.o(.bss)
-    Gyro_Offset                              0x20020960   Data          12  ins_task.o(.bss)
-    Accel_Offset                             0x2002096c   Data          12  ins_task.o(.bss)
-    ist8310_real_data                        0x20020978   Data          16  ins_task.o(.bss)
-    Mag_Offset                               0x20020988   Data          12  ins_task.o(.bss)
-    INS_gyro                                 0x20020994   Data          12  ins_task.o(.bss)
-    INS_accel                                0x200209a0   Data          12  ins_task.o(.bss)
-    INS_mag                                  0x200209ac   Data          12  ins_task.o(.bss)
-    INS_Angle                                0x200209b8   Data          12  ins_task.o(.bss)
-    INS_quat                                 0x200209c4   Data          16  ins_task.o(.bss)
-    imuTempPid                               0x200209d4   Data          72  ins_task.o(.bss)
-    accel_fliter_1                           0x20020a1c   Data          12  ins_task.o(.bss)
-    accel_fliter_2                           0x20020a28   Data          12  ins_task.o(.bss)
-    accel_fliter_3                           0x20020a34   Data          12  ins_task.o(.bss)
-    .bss                                     0x20020a40   Section       94  remote_control.o(.bss)
-    rc_ctrl                                  0x20020a40   Data          22  remote_control.o(.bss)
-    SBUS_rx_buf                              0x20020a56   Data          72  remote_control.o(.bss)
-    .bss                                     0x20020aa0   Section       12  user_task.o(.bss)
-    .bss                                     0x20020aac   Section       96  libspace.o(.bss)
-    HEAP                                     0x20020b10   Section        0  startup_stm32f427xx.o(HEAP)
-    STACK                                    0x20020b10   Section     1024  startup_stm32f427xx.o(STACK)
-    Heap_Mem                                 0x20020b10   Data           0  startup_stm32f427xx.o(HEAP)
-    Stack_Mem                                0x20020b10   Data        1024  startup_stm32f427xx.o(STACK)
-    __initial_sp                             0x20020f10   Data           0  startup_stm32f427xx.o(STACK)
+    .bss                                     0x200205a8   Section       80  can_receive.o(.bss)
+    motor_chassis                            0x200205a8   Data          40  can_receive.o(.bss)
+    rx1_message                              0x200205d0   Data          20  can_receive.o(.bss)
+    rx2_message                              0x200205e4   Data          20  can_receive.o(.bss)
+    .bss                                     0x200205f8   Section      556  chassis_task.o(.bss)
+    chassis_move                             0x200205f8   Data         556  chassis_task.o(.bss)
+    .bss                                     0x20020824   Section      216  detect_task.o(.bss)
+    errorList                                0x20020824   Data         216  detect_task.o(.bss)
+    .bss                                     0x200208fc   Section      292  ins_task.o(.bss)
+    mpu6500_spi_rxbuf                        0x200208fc   Data          23  ins_task.o(.bss)
+    mpu6500_real_data                        0x20020914   Data          32  ins_task.o(.bss)
+    gyro_cali_offset                         0x20020934   Data          12  ins_task.o(.bss)
+    Gyro_Offset                              0x20020940   Data          12  ins_task.o(.bss)
+    Accel_Offset                             0x2002094c   Data          12  ins_task.o(.bss)
+    ist8310_real_data                        0x20020958   Data          16  ins_task.o(.bss)
+    Mag_Offset                               0x20020968   Data          12  ins_task.o(.bss)
+    INS_gyro                                 0x20020974   Data          12  ins_task.o(.bss)
+    INS_accel                                0x20020980   Data          12  ins_task.o(.bss)
+    INS_mag                                  0x2002098c   Data          12  ins_task.o(.bss)
+    INS_Angle                                0x20020998   Data          12  ins_task.o(.bss)
+    INS_quat                                 0x200209a4   Data          16  ins_task.o(.bss)
+    imuTempPid                               0x200209b4   Data          72  ins_task.o(.bss)
+    accel_fliter_1                           0x200209fc   Data          12  ins_task.o(.bss)
+    accel_fliter_2                           0x20020a08   Data          12  ins_task.o(.bss)
+    accel_fliter_3                           0x20020a14   Data          12  ins_task.o(.bss)
+    .bss                                     0x20020a20   Section       94  remote_control.o(.bss)
+    rc_ctrl                                  0x20020a20   Data          22  remote_control.o(.bss)
+    SBUS_rx_buf                              0x20020a36   Data          72  remote_control.o(.bss)
+    .bss                                     0x20020a80   Section       12  user_task.o(.bss)
+    .bss                                     0x20020a8c   Section       96  libspace.o(.bss)
+    HEAP                                     0x20020af0   Section        0  startup_stm32f427xx.o(HEAP)
+    STACK                                    0x20020af0   Section     1024  startup_stm32f427xx.o(STACK)
+    Heap_Mem                                 0x20020af0   Data           0  startup_stm32f427xx.o(HEAP)
+    Stack_Mem                                0x20020af0   Data        1024  startup_stm32f427xx.o(STACK)
+    __initial_sp                             0x20020ef0   Data           0  startup_stm32f427xx.o(STACK)
 
     Global Symbols
 
@@ -3949,9 +3946,9 @@ Image Symbol Table
     ChassisTask_Handler                      0x200001a8   Data           4  start_task.o(.data)
     UserTaskStack                            0x200001bc   Data           4  user_task.o(.data)
     xQueueRegistry                           0x200001d0   Data          64  queue.o(.bss)
-    angle_degree                             0x20020aa0   Data          12  user_task.o(.bss)
-    __libspace_start                         0x20020aac   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20020b0c   Data           0  libspace.o(.bss)
+    angle_degree                             0x20020a80   Data          12  user_task.o(.bss)
+    __libspace_start                         0x20020a8c   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20020aec   Data           0  libspace.o(.bss)
 
 
 
@@ -4411,7 +4408,7 @@ Memory Map of the image
     0x0800a1b0   0x0800a1b0   0x00000020   Data   RO         8982    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800a1d0, Size: 0x00020f10, Max: 0x00030000, ABSOLUTE, COMPRESSED[0x00000054])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800a1d0, Size: 0x00020ef0, Max: 0x00030000, ABSOLUTE, COMPRESSED[0x00000054])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -4444,17 +4441,17 @@ Memory Map of the image
     0x2000051c        -       0x00020000   Zero   RW         6283    .bss                heap_4.o
     0x2002051c        -       0x00000089   Zero   RW         7731    .bss                calibrate_task.o
     0x200205a5   COMPRESSED   0x00000003   PAD
-    0x200205a8        -       0x00000070   Zero   RW         7823    .bss                can_receive.o
-    0x20020618        -       0x0000022c   Zero   RW         7976    .bss                chassis_task.o
-    0x20020844        -       0x000000d8   Zero   RW         8043    .bss                detect_task.o
-    0x2002091c        -       0x00000124   Zero   RW         8146    .bss                ins_task.o
-    0x20020a40        -       0x0000005e   Zero   RW         8279    .bss                remote_control.o
-    0x20020a9e   COMPRESSED   0x00000002   PAD
-    0x20020aa0        -       0x0000000c   Zero   RW         8372    .bss                user_task.o
-    0x20020aac        -       0x00000060   Zero   RW         8840    .bss                c_w.l(libspace.o)
-    0x20020b0c   COMPRESSED   0x00000004   PAD
-    0x20020b10        -       0x00000000   Zero   RW            2    HEAP                startup_stm32f427xx.o
-    0x20020b10        -       0x00000400   Zero   RW            1    STACK               startup_stm32f427xx.o
+    0x200205a8        -       0x00000050   Zero   RW         7823    .bss                can_receive.o
+    0x200205f8        -       0x0000022c   Zero   RW         7976    .bss                chassis_task.o
+    0x20020824        -       0x000000d8   Zero   RW         8043    .bss                detect_task.o
+    0x200208fc        -       0x00000124   Zero   RW         8146    .bss                ins_task.o
+    0x20020a20        -       0x0000005e   Zero   RW         8279    .bss                remote_control.o
+    0x20020a7e   COMPRESSED   0x00000002   PAD
+    0x20020a80        -       0x0000000c   Zero   RW         8372    .bss                user_task.o
+    0x20020a8c        -       0x00000060   Zero   RW         8840    .bss                c_w.l(libspace.o)
+    0x20020aec   COMPRESSED   0x00000004   PAD
+    0x20020af0        -       0x00000000   Zero   RW            2    HEAP                startup_stm32f427xx.o
+    0x20020af0        -       0x00000400   Zero   RW            1    STACK               startup_stm32f427xx.o
 
 
 ==============================================================================
@@ -4469,7 +4466,7 @@ Image component sizes
        228         20          0          0          0       1871   buzzer.o
       1796        110         15         84        137      15800   calibrate_task.o
        548         16          0          0          0       2086   can.o
-       340         40          0          1        112       4624   can_receive.o
+       340         40          0          1         80       4552   can_receive.o
        928         74          0         17          0      16749   chassis_behaviour.o
       2202        132         32          4        556       8203   chassis_task.o
          0          0          0          0          0       7184   croutine.o
@@ -4520,7 +4517,7 @@ Image component sizes
        116         14          0          4         12       1452   user_task.o
 
     ----------------------------------------------------------------------
-     30594       2466        612        448     134364     967538   Object Totals
+     30594       2466        612        448     134332     967466   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         60          0          3         15          5          0   (incl. Padding)
 
@@ -4612,14 +4609,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     38748       2920       2676        464     134464     972412   Grand Totals
-     38748       2920       2676         84     134464     972412   ELF Image Totals (compressed)
+     38748       2920       2676        464     134432     972340   Grand Totals
+     38748       2920       2676         84     134432     972340   ELF Image Totals (compressed)
      38748       2920       2676         84          0          0   ROM Totals
 
 ==============================================================================
 
     Total RO  Size (Code + RO Data)                41424 (  40.45kB)
-    Total RW  Size (RW Data + ZI Data)            134928 ( 131.77kB)
+    Total RW  Size (RW Data + ZI Data)            134896 ( 131.73kB)
     Total ROM Size (Code + RO Data + RW Data)      41508 (  40.54kB)
 
 ==============================================================================
