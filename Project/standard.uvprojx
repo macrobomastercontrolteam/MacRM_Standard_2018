@@ -807,16 +807,6 @@
               <FileType>1</FileType>
               <FilePath>..\user\hardware\timer\timer.c</FilePath>
             </File>
-            <File>
-              <FileName>cv.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\user\hardware\cv\cv.c</FilePath>
-            </File>
-            <File>
-              <FileName>cv.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\user\hardware\cv\cv.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
