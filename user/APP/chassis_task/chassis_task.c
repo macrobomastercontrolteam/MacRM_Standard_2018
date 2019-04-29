@@ -47,7 +47,7 @@
 
 //底盘运动数据
 static chassis_move_t chassis_move;
-static uint8_t power;
+static uint8_t power = 0;
 //底盘初始化，主要是pid初始化
 static void chassis_init(chassis_move_t *chassis_move_init);
 //底盘状态机选择，通过遥控器的开关
@@ -92,8 +92,11 @@ void chassis_task(void *pvParameters)
         //底盘控制PID计算
         chassis_control_loop(&chassis_move);
 				//power calculation
-			  power = get_total_motor_power(&chassis_move);
+			  power++;
+			  if(power==100){
 			  USART_SendData(USART6, power);
+				power=0;
+				}
         if (!(toe_is_error(ChassisMotor1TOE) || toe_is_error(ChassisMotor2TOE) || toe_is_error(ChassisMotor3TOE) || toe_is_error(ChassisMotor4TOE)))
         {
             //当遥控器掉线的时候，为relax状态，底盘电机指令为零，为了保证一定发送为零，故而不采用设置give_current的方法

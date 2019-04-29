@@ -21,13 +21,22 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
 Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-E:\robomaster\test\MacRM_Standard-motor-power-calc\power\MacRM_Standard\Project\standard.uvprojx
-Project File Date:  02/27/2019
+E:\robomaster\dev\MacRM_Standard\Project\standard.uvprojx
+Project File Date:  03/19/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'E:\keil\ARM\ARMCC\Bin'
 Build target 'standard'
-".\Objects\infantry.axf" - 0 Error(s), 0 Warning(s).
+compiling chassis_task.c...
+..\User\hardware\RC\rc.h(8): warning:  #1295-D: Deprecated declaration PW_init - give arg types
+  extern void PW_init();
+..\user\APP\chassis_task\chassis_task.c(418): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      return (uint16_t) ((motor->given_current)*((float)20)/16384.0 * 24);
+..\user\APP\chassis_task\chassis_task.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=49724 RO-data=2772 RW-data=568 ZI-data=135264  
+FromELF: creating hex file...
+".\Objects\infantry.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -41,7 +50,7 @@ Package Vendor: Keil
   E:\keil\ARM\PACK\Keil\STM32F4xx_DFP\2.12.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>
