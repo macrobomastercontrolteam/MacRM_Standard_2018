@@ -123,33 +123,6 @@ void GIMBAL_task(void *pvParameters)
         GIMBAL_Control_loop(&gimbal_control);                //云台控制PID计算
         Shoot_Can_Set_Current = shoot_control_loop();        //射击任务控制循环
 			
-				uint16_t info =  gimbal_control.gimbal_pitch_motor.gimbal_motor_measure->ecd;
-				info = info >> 1;
-			
-				uint8_t partition1 = (info & 0x0FC0)>>6 ;
-				
-				partition1 += 0x00;
-		   	//USART_SendData(USART6,partition1);
-	   		uint8_t partition2 = info & 0x003F;
-				partition2 += 0x40;
-			  USART_SendData(USART6,partition2);
-
-			
-				info =  gimbal_control.gimbal_yaw_motor.gimbal_motor_measure->ecd;
-				info = info >> 1;
-			
-				uint8_t partition3 = (info & 0x0FC0)>>6 ;
-				
-				
-				partition3 += 0x80;
-				//USART_SendData(USART6,partition3);
-				uint8_t partition4 = info & 0x003F;
-				partition4 += 0xC0;
-				USART_SendData(USART6,partition4);
-			  
-			
-				//USART_SendData(USART6, gimbal_control.gimbal_pitch_motor.gimbal_motor_measure->ecd);
-			
 #if YAW_TURN
         Yaw_Can_Set_Current = -gimbal_control.gimbal_yaw_motor.given_current;
 #else

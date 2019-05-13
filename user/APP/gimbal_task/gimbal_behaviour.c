@@ -202,8 +202,8 @@ void gimbal_behaviour_mode_set(Gimbal_Control_t *gimbal_mode_set)
     }
 		else if (gimbal_behaviour == GIMBAL_CVAIM)
     {
-        gimbal_mode_set->gimbal_yaw_motor.gimbal_motor_mode = GIMBAL_MOTOR_CVAIM;
-        gimbal_mode_set->gimbal_pitch_motor.gimbal_motor_mode = GIMBAL_MOTOR_CVAIM;
+        gimbal_mode_set->gimbal_yaw_motor.gimbal_motor_mode = GIMBAL_MOTOR_RAW;
+        gimbal_mode_set->gimbal_pitch_motor.gimbal_motor_mode = GIMBAL_MOTOR_RAW;
     }
 }
 
@@ -259,27 +259,6 @@ void gimbal_behaviour_control_set(fp32 *add_yaw, fp32 *add_pitch, Gimbal_Control
     }
 		else if (gimbal_behaviour == GIMBAL_CVAIM)
     {
-			  if(cv_x <= 120){
-				    x_sens = 0.00192041;
-					  rc_add_yaw = rc_add_yaw + ((sign_x == 0)? (-1)*(x_sens) : (x_sens));
-				}
-				else{
-					  x_sens = 0.00192041;
-					  rc_add_yaw = rc_add_yaw + ((sign_x == 0)? ((-1)*((float)cv_x)*x_sens) : (((float)cv_x)*x_sens));
-				}
-				if(cv_y <= 66){
-				    y_sens = 0.0015744;
-		  			rc_add_pit = rc_add_pit + ((sign_y == 1)? (-1)*(y_sens) : (y_sens));
-				}
-				else{
-					  y_sens = 0.0015744;
-					  rc_add_pit = rc_add_pit + ((sign_y == 1)? ((-1)*((float)cv_y)*y_sens) : (((float)cv_y)*y_sens));
-				}
-				
-				
-				
-				
-			
         gimbal_relative_angle_control(&rc_add_yaw, &rc_add_pit, gimbal_control_set);
     }
     //将控制增加量赋值

@@ -10,12 +10,12 @@
 .\objects\chassis_behaviour.o: ..\user\user_lib\user_lib.h
 .\objects\chassis_behaviour.o: ..\User\DSP\Include\arm_math.h
 .\objects\chassis_behaviour.o: ..\CMSIS\core_cm4.h
-.\objects\chassis_behaviour.o: E:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\chassis_behaviour.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\chassis_behaviour.o: ..\CMSIS\core_cmInstr.h
 .\objects\chassis_behaviour.o: ..\CMSIS\core_cmFunc.h
 .\objects\chassis_behaviour.o: ..\CMSIS\core_cmSimd.h
-.\objects\chassis_behaviour.o: E:\keil\ARM\ARMCC\Bin\..\include\string.h
-.\objects\chassis_behaviour.o: E:\keil\ARM\ARMCC\Bin\..\include\math.h
+.\objects\chassis_behaviour.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\chassis_behaviour.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\chassis_behaviour.o: ..\User\APP\Gimbal_Task\gimbal_behaviour.h
 .\objects\chassis_behaviour.o: ..\User\APP\CV_receive\CV_receive.h
 .\objects\chassis_behaviour.o: ..\User\hardware\cv\cv.h
@@ -56,7 +56,7 @@
 .\objects\chassis_behaviour.o: ..\User\hardware\RNG\rng.h
 .\objects\chassis_behaviour.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\chassis_behaviour.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\chassis_behaviour.o: E:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\chassis_behaviour.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\chassis_behaviour.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\chassis_behaviour.o: ..\User\FreeRTOS\include\portable.h
 .\objects\chassis_behaviour.o: ..\User\FreeRTOS\include\deprecated_definitions.h

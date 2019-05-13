@@ -7,12 +7,12 @@
 .\objects\gimbal_task.o: ..\User\hardware\RC\rc.h
 .\objects\gimbal_task.o: ..\User\DSP\Include\arm_math.h
 .\objects\gimbal_task.o: ..\CMSIS\core_cm4.h
-.\objects\gimbal_task.o: E:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\gimbal_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\gimbal_task.o: ..\CMSIS\core_cmInstr.h
 .\objects\gimbal_task.o: ..\CMSIS\core_cmFunc.h
 .\objects\gimbal_task.o: ..\CMSIS\core_cmSimd.h
-.\objects\gimbal_task.o: E:\keil\ARM\ARMCC\Bin\..\include\string.h
-.\objects\gimbal_task.o: E:\keil\ARM\ARMCC\Bin\..\include\math.h
+.\objects\gimbal_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\gimbal_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\gimbal_task.o: ..\user\APP\gimbal_task\gimbal_behaviour.h
 .\objects\gimbal_task.o: ..\User\APP\CV_receive\CV_receive.h
 .\objects\gimbal_task.o: ..\User\hardware\cv\cv.h
@@ -53,7 +53,7 @@
 .\objects\gimbal_task.o: ..\User\hardware\RNG\rng.h
 .\objects\gimbal_task.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\gimbal_task.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\gimbal_task.o: E:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\gimbal_task.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\gimbal_task.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\gimbal_task.o: ..\User\FreeRTOS\include\portable.h
 .\objects\gimbal_task.o: ..\User\FreeRTOS\include\deprecated_definitions.h
