@@ -94,10 +94,10 @@ void CAN_CMD_GIMBAL(int16_t yaw, int16_t pitch, int16_t shoot, int16_t rev)
     GIMBAL_TxMessage.IDE = CAN_ID_STD;
     GIMBAL_TxMessage.RTR = CAN_RTR_DATA;
     GIMBAL_TxMessage.DLC = 0x08;
-    GIMBAL_TxMessage.Data[0] = (yaw >> 8);
-    GIMBAL_TxMessage.Data[1] = yaw;
-    GIMBAL_TxMessage.Data[2] = (pitch >> 8);
-    GIMBAL_TxMessage.Data[3] = pitch;
+    GIMBAL_TxMessage.Data[0] = (pitch >> 8);
+    GIMBAL_TxMessage.Data[1] = pitch;
+    GIMBAL_TxMessage.Data[2] = (yaw >> 8);
+    GIMBAL_TxMessage.Data[3] = yaw;
     GIMBAL_TxMessage.Data[4] = (shoot >> 8);
     GIMBAL_TxMessage.Data[5] = shoot;
     GIMBAL_TxMessage.Data[6] = (rev >> 8);
