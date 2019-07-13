@@ -40,6 +40,7 @@
 #include "calibrate_task.h"
 #include "remote_control.h"
 #include "start_task.h"
+#include "power_limit_switch.h"
 #include "CV_receive.h"
 uint16_t cv_x;
 uint16_t cv_y;	
@@ -52,6 +53,7 @@ void BSP_init(void);
 int main(void)
 {
     BSP_init();
+		// start_power_switching_timer();
     delay_ms(100);
     startTast();
     vTaskStartScheduler();

@@ -2,7 +2,7 @@
   ****************************(C) COPYRIGHT 2016 DJI****************************
   * @file       chassis.c/h
   * @brief      完成底盘控制任务。
-  * @note       
+  * @note
   * @history
   *  Version    Date            Author          Modification
   *  V1.0.0     Dec-26-2018     RM              1. 完成
@@ -33,6 +33,8 @@
 
 #include "chassis_behaviour.h"
 
+#include "stm32f4xx_tim.h"
+
 #define rc_deadline_limit(input, output, dealine)        \
     {                                                    \
         if ((input) > (dealine) || (input) < -(dealine)) \
@@ -44,6 +46,9 @@
             (output) = 0;                                \
         }                                                \
     }
+
+// max wheel speed based on timer4
+static fp32 maximum_wheel_speed;
 
 //底盘运动数据
 static chassis_move_t chassis_move;
@@ -384,9 +389,9 @@ static void chassis_control_loop(chassis_move_t *chassis_move_control_loop)
         }
     }
 
-    if (max_vector > MAX_WHEEL_SPEED)
+    if (max_vector > maximum_wheel_speed)
     {
-        vector_rate = MAX_WHEEL_SPEED / max_vector;
+        vector_rate = maximum_wheel_speed / max_vector;
         for (i = 0; i < 4; i++)
         {
             chassis_move_control_loop->motor_chassis[i].speed_set *= vector_rate;
@@ -404,5 +409,24 @@ static void chassis_control_loop(chassis_move_t *chassis_move_control_loop)
     for (i = 0; i < 4; i++)
     {
         chassis_move_control_loop->motor_chassis[i].give_current = (int16_t)(chassis_move_control_loop->motor_speed_pid[i].out);
+    }
+}
+
+// power limit switch IRQ handler
+// 100ms spent in higher max power, 900ms spent in lower max power
+void TIM4_IRQHandler(void)
+{
+    // if at 50ms
+    if(TIM_GetITStatus(TIM4, TIM_IT_CC1) != RESET)
+    {
+        maximum_wheel_speed = 4.0f; // TODO or something
+        TIM_ClearITPendingBit(TIM4, TIM_IT_CC1);
+    }
+
+    // if at 950ms
+    else if(TIM_GetITStatus(TIM4, TIM_IT_CC2) != RESET)
+    {
+        maximum_wheel_speed = 4.0f; // TODO or something
+        TIM_ClearITPendingBit(TIM4, TIM_IT_CC2);
     }
 }

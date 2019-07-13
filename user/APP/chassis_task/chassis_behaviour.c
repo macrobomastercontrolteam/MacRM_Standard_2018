@@ -2,7 +2,7 @@
   ****************************(C) COPYRIGHT 2016 DJI****************************
   * @file       chassis_behaviour.c/h
   * @brief      完成底盘行为任务。
-  * @note       
+  * @note
   * @history
   *  Version    Date            Author          Modification
   *  V1.0.0     Dec-26-2018     RM              1. 完成
@@ -19,6 +19,8 @@
 #include "arm_math.h"
 
 #include "gimbal_behaviour.h"
+
+extern fp32 maximum_wheel_speed;
 
 /**
   * @brief          底盘无力的行为状态机下，底盘模式是raw，故而设定值会直接发送到can总线上故而将设定值都设置为0
