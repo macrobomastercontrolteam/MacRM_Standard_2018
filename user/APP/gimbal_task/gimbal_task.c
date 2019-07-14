@@ -132,7 +132,7 @@ void GIMBAL_task(void *pvParameters)
 		   	//USART_SendData(USART6,partition1);
 	   		uint8_t partition2 = info & 0x003F;
 				partition2 += 0x40;
-			  USART_SendData(USART6,partition2);
+			  //USART_SendData(USART6,partition2);
 
 			
 				info =  gimbal_control.gimbal_yaw_motor.gimbal_motor_measure->ecd;
@@ -145,7 +145,7 @@ void GIMBAL_task(void *pvParameters)
 				//USART_SendData(USART6,partition3);
 				uint8_t partition4 = info & 0x003F;
 				partition4 += 0xC0;
-				USART_SendData(USART6,partition4);
+				//USART_SendData(USART6,partition4);
 			  
 			
 				//USART_SendData(USART6, gimbal_control.gimbal_pitch_motor.gimbal_motor_measure->ecd);

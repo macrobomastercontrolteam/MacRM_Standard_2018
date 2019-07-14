@@ -419,6 +419,7 @@ void TIM4_IRQHandler(void)
     // if at 50ms
     if(TIM_GetITStatus(TIM4, TIM_IT_CC1) != RESET)
     {
+				USART_SendData(USART6, 10);
         maximum_wheel_speed = 4.0f; // TODO or something
         TIM_ClearITPendingBit(TIM4, TIM_IT_CC1);
     }
@@ -426,6 +427,7 @@ void TIM4_IRQHandler(void)
     // if at 950ms
     else if(TIM_GetITStatus(TIM4, TIM_IT_CC2) != RESET)
     {
+				USART_SendData(USART6, 20);
         maximum_wheel_speed = 4.0f; // TODO or something
         TIM_ClearITPendingBit(TIM4, TIM_IT_CC2);
     }
