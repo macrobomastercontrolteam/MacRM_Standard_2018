@@ -14,7 +14,7 @@ void TIM4_Init(uint16_t arr, uint16_t psc)
 
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM4, ENABLE);
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM4, DISABLE);
-	
+
 		USART_SendData(USART6, 005); // periph reset
 
     NVIC_InitStructure.NVIC_IRQChannel = TIM4_IRQn;
@@ -22,7 +22,7 @@ void TIM4_Init(uint16_t arr, uint16_t psc)
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x00;
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
     NVIC_Init(&NVIC_InitStructure);
-	
+
 		USART_SendData(USART6, 006); // nvic init completed
 
     TIM_TimeBaseInitStructure.TIM_Period = arr - 1;
@@ -31,12 +31,12 @@ void TIM4_Init(uint16_t arr, uint16_t psc)
     TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 
     // TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
-		
+
 		USART_SendData(USART6, 006); // IT config completed
 
 
     TIM_TimeBaseInit(TIM4, &TIM_TimeBaseInitStructure);
-		
+
 		USART_SendData(USART6, 007); // TimeBase init completed
 
     /* TIM4 */
@@ -46,23 +46,23 @@ void TIM4_Init(uint16_t arr, uint16_t psc)
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
-		
+
 		TIM_OCStructInit(&TIM_OCInitStructure);
 
     TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Toggle; // 1 when high power, 0 when low power
     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 
-    TIM_OCInitStructure.TIM_Pulse = 50;
+    TIM_OCInitStructure.TIM_Pulse = CC1_VALUE;
     TIM_OC1Init(TIM4, &TIM_OCInitStructure);
 
     TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
 
-    TIM_OCInitStructure.TIM_Pulse = 950;
+    TIM_OCInitStructure.TIM_Pulse = CC2_VALUE;
     TIM_OC2Init(TIM4, &TIM_OCInitStructure);
 
     TIM_OC2PreloadConfig(TIM4, TIM_OCPreload_Enable);
-		
+
 		USART_SendData(USART6, 8); // oc# init completed
 
     TIM_ClearITPendingBit(TIM4, TIM_IT_CC1 | TIM_IT_CC2);
@@ -92,7 +92,7 @@ void start_power_switching_timer(void)
     uint32_t TIM4CLK_Frequency = multiplier * RCC_Clocks.PCLK1_Frequency;
     // uint16_t TIM4CLK_Frequency = RCC_Clocks.PCLK1_Frequency;
     uint16_t TIM4COUNTER_Frequency = 1e3; // 1 kHz
-    uint16_t TIM4COUNTER_Period    = 1e3; // 1 second
+    uint16_t TIM4COUNTER_Period    = 200; // 200 ms
 		USART_SendData(USART6, 004); // init timer
     TIM4_Init(TIM4COUNTER_Period, TIM4CLK_Frequency / TIM4COUNTER_Frequency); //
 		// USART_SendData(USART6, 005); // was able to initialize timer
