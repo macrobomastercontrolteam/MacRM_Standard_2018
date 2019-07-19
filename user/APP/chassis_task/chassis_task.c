@@ -49,10 +49,13 @@
 
 // max wheel speed based on timer4
 static fp32 maximum_wheel_speed;
-
+uint16_t power = 0;
+uint8_t	buffercounter = 0;
+uint16_t buffer = 60;		
 //�����˶�����
 static chassis_move_t chassis_move;
 
+uint16_t get_total_motor_power(chassis_move_t *chassis_move);
 //���̳�ʼ������Ҫ��pid��ʼ��
 static void chassis_init(chassis_move_t *chassis_move_init);
 //����״̬��ѡ����ͨ��ң�����Ŀ���
@@ -89,13 +92,16 @@ void chassis_task(void *pvParameters)
         chassis_set_mode(&chassis_move);
         //ң����״̬�л����ݱ���
         chassis_mode_change_control_transit(&chassis_move);
+			
         //�������ݸ���
         chassis_feedback_update(&chassis_move);
+			
         //���̿���������
         chassis_set_contorl(&chassis_move);
         //���̿���PID����
         chassis_control_loop(&chassis_move);
 
+			//power = get_total_motor_power(&chassis_move);
         if (!(toe_is_error(ChassisMotor1TOE) || toe_is_error(ChassisMotor2TOE) || toe_is_error(ChassisMotor3TOE) || toe_is_error(ChassisMotor4TOE)))
         {
             //��ң�������ߵ�ʱ����Ϊrelax״̬�����̵���ָ��Ϊ�㣬Ϊ�˱�֤һ������Ϊ�㣬�ʶ�����������give_current�ķ���
@@ -419,16 +425,46 @@ void TIM4_IRQHandler(void)
     // if at 50ms, switch to the lower power limit
     if(TIM_GetITStatus(TIM4, TIM_IT_CC1) != RESET)
     {
-				USART_SendData(USART6, 10);
-        maximum_wheel_speed = 4.0f; // TODO or something
+			if(power>80){
+				buffer -= 0.1*(power-80);
+			}
         TIM_ClearITPendingBit(TIM4, TIM_IT_CC1);
     }
 
     // if at 150ms, switch to the higher power limit
     else if(TIM_GetITStatus(TIM4, TIM_IT_CC2) != RESET)
     {
-				USART_SendData(USART6, 20);
-        maximum_wheel_speed = 6.0f; // TODO or something higher
+       if(power>80){
+				buffer -= 0.1*(power-80);
+			}
         TIM_ClearITPendingBit(TIM4, TIM_IT_CC2);
     }
+		if(buffer<5)
+		{
+			maximum_wheel_speed = 2.0f;
+			buffercounter++;
+		}
+		else if(buffercounter==10){
+			maximum_wheel_speed = 4.0f;
+		  buffer = 60;
+		}
+}
+// Watts
+uint16_t get_motor_power(const motor_measure_t *motor)
+{
+    return (uint16_t) ((motor->given_current)*((float)20)/16384.0 * 24);
+}
+
+
+// Watts
+uint16_t get_total_motor_power(chassis_move_t *chassis_move)
+{
+    uint16_t to_return = 0;
+    uint8_t i;
+    for(i = 0; i < 4; i++)
+    {
+				uint16_t motor_power = get_motor_power((chassis_move->motor_chassis[i]).chassis_motor_measure);
+				to_return += motor_power;
+    }
+    return to_return;
 }

@@ -53,9 +53,7 @@ void BSP_init(void);
 int main(void)
 {
     BSP_init();
-		USART_SendData(USART6, 001); // going to start power switching timer
 		start_power_switching_timer();
-		USART_SendData(USART6, 002); // started the power switching timer
     delay_ms(100);
     startTast();
     vTaskStartScheduler();
