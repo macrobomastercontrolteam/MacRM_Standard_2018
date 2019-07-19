@@ -35,6 +35,10 @@
 
 #include "stm32f4xx_tim.h"
 
+#define CHASSIS_FULL_SPD 6.0f
+
+#define CHASSIS_LIMITED_SPD 3.0f
+
 #define rc_deadline_limit(input, output, dealine)        \
     {                                                    \
         if ((input) > (dealine) || (input) < -(dealine)) \
@@ -48,7 +52,7 @@
     }
 
 // max wheel speed based on timer4
-static fp32 maximum_wheel_speed;
+fp32 maximum_wheel_speed = CHASSIS_FULL_SPD;
 uint16_t power = 0;
 uint8_t	buffercounter = 0;
 uint16_t buffer = 60;		
@@ -100,8 +104,9 @@ void chassis_task(void *pvParameters)
         chassis_set_contorl(&chassis_move);
         //���̿���PID����
         chassis_control_loop(&chassis_move);
+			
+			  power = get_total_motor_power(&chassis_move);
 
-			//power = get_total_motor_power(&chassis_move);
         if (!(toe_is_error(ChassisMotor1TOE) || toe_is_error(ChassisMotor2TOE) || toe_is_error(ChassisMotor3TOE) || toe_is_error(ChassisMotor4TOE)))
         {
             //��ң�������ߵ�ʱ����Ϊrelax״̬�����̵���ָ��Ϊ�㣬Ϊ�˱�֤һ������Ϊ�㣬�ʶ�����������give_current�ķ���
@@ -422,6 +427,16 @@ static void chassis_control_loop(chassis_move_t *chassis_move_control_loop)
 // 100ms spent in higher max power, 100ms spent in lower max power
 void TIM4_IRQHandler(void)
 {
+	  if(buffer<5)
+		{
+			maximum_wheel_speed = CHASSIS_LIMITED_SPD;
+			buffercounter++;
+		}
+		if(buffercounter==10){
+			maximum_wheel_speed = CHASSIS_FULL_SPD;
+		  buffer = 60;
+			buffercounter = 0;
+		}
     // if at 50ms, switch to the lower power limit
     if(TIM_GetITStatus(TIM4, TIM_IT_CC1) != RESET)
     {
@@ -439,15 +454,6 @@ void TIM4_IRQHandler(void)
 			}
         TIM_ClearITPendingBit(TIM4, TIM_IT_CC2);
     }
-		if(buffer<5)
-		{
-			maximum_wheel_speed = 2.0f;
-			buffercounter++;
-		}
-		else if(buffercounter==10){
-			maximum_wheel_speed = 4.0f;
-		  buffer = 60;
-		}
 }
 // Watts
 uint16_t get_motor_power(const motor_measure_t *motor)
