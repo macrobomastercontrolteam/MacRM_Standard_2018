@@ -51,11 +51,10 @@
         }                                                \
     }
 
-// max wheel speed based on timer4
-fp32 maximum_wheel_speed = CHASSIS_FULL_SPD;
-uint16_t power = 0;
-uint8_t	buffercounter = 0;
-uint16_t buffer = 60;		
+int power = 0;
+float	power_output_scale = 0;
+int buffer = 60;		
+		
 //�����˶�����
 static chassis_move_t chassis_move;
 
@@ -400,9 +399,9 @@ static void chassis_control_loop(chassis_move_t *chassis_move_control_loop)
         }
     }
 
-    if (max_vector > maximum_wheel_speed)
+    if (max_vector > MAX_WHEEL_SPEED)
     {
-        vector_rate = maximum_wheel_speed / max_vector;
+        vector_rate = MAX_WHEEL_SPEED / max_vector;
         for (i = 0; i < 4; i++)
         {
             chassis_move_control_loop->motor_chassis[i].speed_set *= vector_rate;
@@ -424,33 +423,38 @@ static void chassis_control_loop(chassis_move_t *chassis_move_control_loop)
 }
 
 // power limit switch IRQ handler
-// 100ms spent in higher max power, 100ms spent in lower max power
 void TIM4_IRQHandler(void)
 {
-	  if(buffer<5)
+	  if(buffer<30)
 		{
-			maximum_wheel_speed = CHASSIS_LIMITED_SPD;
-			buffercounter++;
+			power_output_scale = buffer/30.0f;
 		}
-		if(buffercounter==10){
-			maximum_wheel_speed = CHASSIS_FULL_SPD;
-		  buffer = 60;
-			buffercounter = 0;
+		else if(buffer>30)
+		{
+			power_output_scale = 1.0f;
 		}
-    // if at 50ms, switch to the lower power limit
+    // if at 50ms
     if(TIM_GetITStatus(TIM4, TIM_IT_CC1) != RESET)
     {
-			if(power>80){
-				buffer -= 0.1*(power-80);
+			buffer -= 0.1*(power-80);
+			if(buffer>60){
+				buffer = 60;
+			}
+			else if(buffer<0){
+				buffer = 0;
 			}
         TIM_ClearITPendingBit(TIM4, TIM_IT_CC1);
     }
 
-    // if at 150ms, switch to the higher power limit
+    // if at 150ms
     else if(TIM_GetITStatus(TIM4, TIM_IT_CC2) != RESET)
     {
-       if(power>80){
-				buffer -= 0.1*(power-80);
+			buffer -= 0.1*(power-80);
+			if(buffer>60){
+				buffer = 60;
+			}
+			else if(buffer<0){
+				buffer = 0;
 			}
         TIM_ClearITPendingBit(TIM4, TIM_IT_CC2);
     }
