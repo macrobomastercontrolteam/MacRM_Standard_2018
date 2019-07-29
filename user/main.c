@@ -102,7 +102,6 @@ void BSP_init(void)
     }
     //遥控器初始化
     remote_control_init();
-		cv_init();
     //flash读取函数，把校准值放回对应参数
     cali_param_init();
 }
