@@ -1228,7 +1228,7 @@
       <GroupNumber>10</GroupNumber>
       <FileNumber>81</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\user\APP\CAN_receive\CAN_receive.c</PathWithFileName>
@@ -1252,7 +1252,7 @@
       <GroupNumber>10</GroupNumber>
       <FileNumber>83</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\user\APP\chassis_task\chassis_task.c</PathWithFileName>
@@ -1300,7 +1300,7 @@
       <GroupNumber>10</GroupNumber>
       <FileNumber>87</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\user\APP\gimbal_task\gimbal_task.c</PathWithFileName>

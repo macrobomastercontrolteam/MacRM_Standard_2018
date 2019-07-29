@@ -42,8 +42,6 @@
         (ptr)->last_ecd = (ptr)->ecd;                                                          \
         (ptr)->ecd = (uint16_t)((rx_message)->Data[0] << 8 | (rx_message)->Data[1]);           \
         (ptr)->given_current = (uint16_t)((rx_message)->Data[2] << 8 | (rx_message)->Data[3]); \
-        (ptr)->speed_rpm = (uint16_t)((rx_message)->Data[4] << 8 | (rx_message)->Data[5]);     \
-        (ptr)->temperate = (rx_message)->Data[6];                                              \
     }
 
 //统一处理can接收函数
@@ -94,10 +92,10 @@ void CAN_CMD_GIMBAL(int16_t yaw, int16_t pitch, int16_t shoot, int16_t rev)
     GIMBAL_TxMessage.IDE = CAN_ID_STD;
     GIMBAL_TxMessage.RTR = CAN_RTR_DATA;
     GIMBAL_TxMessage.DLC = 0x08;
-    GIMBAL_TxMessage.Data[0] = (yaw >> 8);
-    GIMBAL_TxMessage.Data[1] = yaw;
-    GIMBAL_TxMessage.Data[2] = (pitch >> 8);
-    GIMBAL_TxMessage.Data[3] = pitch;
+    GIMBAL_TxMessage.Data[0] = (pitch >> 8);
+    GIMBAL_TxMessage.Data[1] = pitch;
+    GIMBAL_TxMessage.Data[2] = (yaw >> 8);
+    GIMBAL_TxMessage.Data[3] = yaw;
     GIMBAL_TxMessage.Data[4] = (shoot >> 8);
     GIMBAL_TxMessage.Data[5] = shoot;
     GIMBAL_TxMessage.Data[6] = (rev >> 8);
