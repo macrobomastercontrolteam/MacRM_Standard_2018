@@ -50,9 +50,9 @@
 
 
 int power = 0;
-int buffer = 60;	
-float power_output_scale = 1.0f;		
-		
+int buffer = 60;
+float power_output_scale = 1.0f;
+
 //�����˶�����
 static chassis_move_t chassis_move;
 
@@ -93,15 +93,15 @@ void chassis_task(void *pvParameters)
         chassis_set_mode(&chassis_move);
         //ң����״̬�л����ݱ���
         chassis_mode_change_control_transit(&chassis_move);
-			
+
         //�������ݸ���
         chassis_feedback_update(&chassis_move);
-			
+
         //���̿���������
         chassis_set_contorl(&chassis_move);
         //���̿���PID����
         chassis_control_loop(&chassis_move);
-			
+
 			  power = get_total_motor_power(&chassis_move);
 
         if (!(toe_is_error(ChassisMotor1TOE) || toe_is_error(ChassisMotor2TOE) || toe_is_error(ChassisMotor3TOE) || toe_is_error(ChassisMotor4TOE)))

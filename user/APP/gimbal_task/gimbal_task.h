@@ -88,7 +88,7 @@
 #define Pitch_RC_SEN -0.000006f //0.005
 //yaw,pitch角度和鼠标输入的比例
 #define Yaw_Mouse_Sen 0.00005f
-#define Pitch_Mouse_Sen 0.00015f
+#define Pitch_Mouse_Sen 0.00005f
 //云台编码器控制时候使用的比例
 #define Yaw_Encoder_Sen 0.01f
 #define Pitch_Encoder_Sen 0.01f
