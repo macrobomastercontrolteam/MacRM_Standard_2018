@@ -2,7 +2,7 @@
 .\objects\main.o: ..\user\main.h
 .\objects\main.o: ..\CMSIS\stm32f4xx.h
 .\objects\main.o: ..\CMSIS\core_cm4.h
-.\objects\main.o: E:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\main.o: ..\CMSIS\core_cmInstr.h
 .\objects\main.o: ..\CMSIS\core_cmFunc.h
 .\objects\main.o: ..\CMSIS\core_cmSimd.h
@@ -52,7 +52,7 @@
 .\objects\main.o: ..\user\hardware\timer\timer.h
 .\objects\main.o: ..\User\FreeRTOS\include\FreeRTOSConfig.h
 .\objects\main.o: ..\User\FreeRTOS\include\FreeRTOS.h
-.\objects\main.o: E:\keil\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\main.o: ..\User\FreeRTOS\include\projdefs.h
 .\objects\main.o: ..\User\FreeRTOS\include\portable.h
 .\objects\main.o: ..\User\FreeRTOS\include\deprecated_definitions.h
@@ -63,6 +63,7 @@
 .\objects\main.o: ..\User\APP\Calibrate_Task\calibrate_task.h
 .\objects\main.o: ..\User\APP\Remote_Control\remote_control.h
 .\objects\main.o: ..\User\APP\Start_Task\start_task.h
+.\objects\main.o: ..\User\APP\power_limit_switch\power_limit_switch.h
 .\objects\main.o: ..\User\APP\CV_receive\CV_receive.h
 .\objects\main.o: ..\User\hardware\cv\cv.h
 .\objects\main.o: ..\User\APP\Detect_Task\Detect_Task.h
